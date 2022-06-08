@@ -18,7 +18,6 @@ return new class extends Migration
             $table->string('nom');
             $table->string('faibleContre');
             $table->string('resistantContre');
-            $table->timestamps();
         });
     }
 

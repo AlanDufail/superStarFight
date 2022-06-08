@@ -6,6 +6,9 @@ use App\Models\Attaque;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Type;
+use Illuminate\Validation\ValidationException;
+use Validator;
+
 class AttaqueController extends Controller
 {
     // Create Form
@@ -15,10 +18,13 @@ class AttaqueController extends Controller
         ]);
     }
 
+    /**
+     * @throws ValidationException
+     */
     public function userForm(Request $request) {
 
         // Form validation
-        $this->validate($request, [
+        $validator = Validator::make($request->all(), [
             'nom' => 'required',
             'type' => 'required',
             'degats'=>'required',
