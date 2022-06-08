@@ -16,7 +16,6 @@ return new class extends Migration
         Schema::create('attaques', function (Blueprint $table) {
             $table->increments('id');
             $table->string('nom');
-            $table->string('type');
             $table->integer('degats');
             $table->integer('precision');
             $table->integer('critique');
