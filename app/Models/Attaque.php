@@ -7,7 +7,9 @@ class Attaque extends Model
 {
     public $fillable = ['nom', 'type', 'degats', 'precision', 'critique'];
 
-    public function characters(){
+    public $timestamps = false;
+
+    public function personnages(){
         return $this->belongsToMany(Personnage::class);
     }
 }
