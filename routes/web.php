@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\Admin\IndexController;
+use App\Http\Controllers\Admin\IndexAdminController;
 use App\Http\Controllers\Admin\PermissionController;
 use App\Http\Controllers\Admin\RoleController;
 use App\Http\Controllers\Admin\UserController;
@@ -17,6 +17,12 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+
+Route::get('/', function () {
+    return view('welcome');
+});
+
+
 Route::get('/ajout-personnage', 'App\Http\Controllers\Personnage\PersonnageController@createUserForm');
 Route::post('/ajout-personnage', 'App\Http\Controllers\Personnage\PersonnageController@userForm');
 Route::get('/ajout-attaque', 'App\Http\Controllers\Attaque\AttaqueController@createUserForm');
@@ -29,16 +35,8 @@ Route::get('/dashboard', function () {
 })->middleware('auth')->name('dashboard');
 
 
-Route::group(['namespace' => 'App\Http\Controllers'], function () {
-    /**
-     * Route landing page
-     */
-    Route::get('/', function () {
-        return view('welcome');
-    });
-
 Route::middleware(['auth', 'role:admin'])->name('admin.')->prefix('admin')->group(function () {
-    Route::get('/', [IndexController::class, 'index'])->name('index');
+    Route::get('/', [IndexAdminController::class, 'index'])->name('index');
     Route::resource('/roles', RoleController::class);
     Route::post('/roles/{role}/permissions', [RoleController::class, 'givePermission'])->name('roles.permissions');
     Route::delete('/roles/{role}/permissions/{permission}', [RoleController::class, 'revokePermission'])->name('roles.permissions.revoke');
@@ -55,10 +53,10 @@ Route::middleware(['auth', 'role:admin'])->name('admin.')->prefix('admin')->grou
 });
 
 
-    Route::middleware(['auth', 'role:player'])->name('player.')->prefix('player')->group(function () {
-        Route::get('/', [IndexPlayerController::class, 'index'])->name('index');
-    });
-
+Route::middleware(['auth', 'role:player'])->name('player.')->prefix('player')->group(function () {
+    Route::get('/', [IndexPlayerController::class, 'index'])->name('index');
 });
+
+
 
 require __DIR__ . '/auth.php';
