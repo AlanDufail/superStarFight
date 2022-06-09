@@ -9,6 +9,7 @@ use App\Http\Controllers\Arene\AreneController;
 use App\Http\Controllers\Attaque\AttaqueController;
 use App\Http\Controllers\Type\TypeController;
 
+
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -38,6 +39,8 @@ Route::get('/play', function () {
     return view('play');
 })->middleware('auth')->name('play');
 
+
+
 // ROUTES IF THE USER IS THE ADMIMN
 Route::middleware(['auth', 'role:admin'])->name('admin.')->prefix('admin')->group(function () {
     Route::get('/', [IndexAdminController::class, 'index'])->name('index');
@@ -62,6 +65,10 @@ Route::middleware(['auth', 'role:admin'])->name('admin.')->prefix('admin')->grou
 
     Route::resource('/personnages', PersonnageController::class);
     Route::get('/personnages',[PersonnageController::class, 'index'])->name('personnages.index');
+
+    Route::resource('/type', TypeController::class);
+    Route::get('/type',[TypeController::class, 'index'])->name('type.index');
+
 });
 
 
