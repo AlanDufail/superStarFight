@@ -39,15 +39,9 @@ Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware('auth')->name('dashboard');
 
-<<<<<<< HEAD
 Route::get('/play', function () {
     return view('play');
 })->middleware('auth')->name('play');
-=======
-Route::get('/selection',[SelectionController::class,'selectionPersonnages'])->name('selectionPersonnages');
-Route::get('/selection/{id}/{combatPersonnageId}',[SelectionController::class,'sendPerso'])->name('send');
-Route::get('/selection/{id}/',[SelectionController::class,'sendPerso'])->name('send_p');
->>>>>>> abb5ab4bcff7e00806b44a9097a6121efb260059
 
 
 
