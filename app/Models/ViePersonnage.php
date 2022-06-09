@@ -9,8 +9,10 @@ class ViePersonnage extends Model
 {
     use HasFactory;
 
+    public $timestamps = false;
+
     public function combatPersonnages()
     {
-        return $this->belongsTo(CombatPersonnage::class, 'id');
+        return $this->belongsTo(CombatPersonnage::class, 'combat_id' , 'id');
     }
 }

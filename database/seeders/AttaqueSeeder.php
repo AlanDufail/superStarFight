@@ -28,5 +28,82 @@ class AttaqueSeeder extends Seeder
             'precision' => '80',
             'critique' => '15',
         ]);
+
+        Attaque::create([
+            'nom' => 'La république c MOI !!',
+            'degats' => '80',
+            'precision' => '50',
+            'critique' => '150',
+        ]);
+
+        Attaque::create([
+            'nom' => 'Diallo ? C qui?',
+            'degats' => '80',
+            'precision' => '50',
+            'critique' => '150',
+        ]);
+
+        Attaque::create([
+            'nom' => 'Diallo ? C qui?',
+            'degats' => '80',
+            'precision' => '10',
+            'critique' => '150',
+        ]);
+
+        Attaque::create([
+            'nom' => 'Grand remplacement',
+            'degats' => '80',
+            'precision' => '10',
+            'critique' => '150',
+        ]);
+
+        Attaque::create([
+            'nom' => 'Coup de boule',
+            'degats' => '80',
+            'precision' => '10',
+            'critique' => '150',
+        ]);
+
+        Attaque::create([
+            'nom' => 'Suuuu !!!',
+            'degats' => '80',
+            'precision' => '10',
+            'critique' => '150',
+        ]);
+
+        Attaque::create([
+            'nom' => 'Bella !!!',
+            'degats' => '80',
+            'precision' => '10',
+            'critique' => '150',
+        ]);
+
+        Attaque::create([
+            'nom' => 'Rubis, c etais pas si mal :/',
+            'degats' => '80',
+            'precision' => '10',
+            'critique' => '150',
+        ]);
+
+        Attaque::create([
+            'nom' => 'Semaine A, c est costume !',
+            'degats' => '80',
+            'precision' => '10',
+            'critique' => '150',
+        ]);
+
+        Attaque::create([
+            'nom' => 'Fais attention, j ai paladin level 80 sur World of Warcraft',
+            'degats' => '80',
+            'precision' => '10',
+            'critique' => '150',
+        ]);
+
+        Attaque::create([
+            'nom' => 'Perlinpinpin',
+            'degats' => '80',
+            'precision' => '10',
+            'critique' => '150',
+        ]);
     }
 }
