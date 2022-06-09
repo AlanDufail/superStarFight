@@ -5,6 +5,7 @@ use App\Http\Controllers\Admin\PermissionController;
 use App\Http\Controllers\Admin\RoleController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Personnage\PersonnageController;
+use App\Http\Controllers\Arene\AreneController;
 use Illuminate\Support\Facades\Route;
 
 /*

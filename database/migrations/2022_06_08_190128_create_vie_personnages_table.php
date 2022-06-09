@@ -14,15 +14,13 @@ return new class extends Migration
     public function up()
     {
         Schema::create('vie_personnages', function (Blueprint $table) {
-            $table->integer('vie_personnage_id')
-                ->unsigned()
-                ->index();
+            $table->increments('id')
+                ->unsigned();
             $table->integer('combat_id')
-                ->unsigned()
-                ->index();
+                ->unsigned();
             $table->foreign('combat_id')
-                ->references('combat_id')
-                ->on('combats_personnages')
+                ->references('id')
+                ->on('combat_personnages')
                 ->onDelete('cascade');
             $table->integer('vie_personnage1');
             $table->integer('vie_personnage2');
