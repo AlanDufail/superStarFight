@@ -238,16 +238,16 @@
             @if (Route::has('login'))
                 @auth
                     <div class="flex w-1/2 justify-end content-center">
-                        <a class="inline-block text-blue-300 no-underline hover:text-indigo-800 hover:text-underline text-center h-10 p-2 md:h-auto md:p-4 " data-tippy-content="@register" href="{{ url('/arena') }}">
+                        <a class="inline-block text-blue-300 no-underline hover:text-indigo-800 hover:text-underline text-center h-10 p-2 md:h-auto md:p-4 "  href="{{ url('/ajout-personnage') }}">
                             <p>Créer personnage</p>
                         </a>
-                        <a class="inline-block text-blue-300 no-underline hover:text-indigo-800 hover:text-underline text-center h-10 p-2 md:h-auto md:p-4 " data-tippy-content="@register" href="{{ url('/arena') }}">
+                        <a class="inline-block text-blue-300 no-underline hover:text-indigo-800 hover:text-underline text-center h-10 p-2 md:h-auto md:p-4 "  href="{{ url('/ajout-attaque') }}">
                             <p>Créer attaque</p>
                         </a>
-                        <a class="inline-block text-blue-300 no-underline hover:text-indigo-800 hover:text-underline text-center h-10 p-2 md:h-auto md:p-4 " data-tippy-content="@register" href="{{ url('/arena') }}">
+                        <a class="inline-block text-blue-300 no-underline hover:text-indigo-800 hover:text-underline text-center h-10 p-2 md:h-auto md:p-4 "  href="{{ url('/ajout-type') }}">
                             <p>Créer profession + type personnage</p>
                         </a>
-                        <a class="inline-block text-blue-300 no-underline hover:text-indigo-800 hover:text-underline text-center h-10 p-2 md:h-auto md:p-4 " data-tippy-content="@register" href="{{ url('/logout') }}">
+                        <a class="inline-block text-blue-300 no-underline hover:text-indigo-800 hover:text-underline text-center h-10 p-2 md:h-auto md:p-4 " href="{{ url('/logout') }}">
                             <form method="POST" action="{{ route('logout') }}">
                                 @csrf
 

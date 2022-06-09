@@ -23,6 +23,10 @@ return new class extends Migration
             $table->integer('attaque');
             $table->integer('defense');
             $table->integer('vitesse');
+            $table->integer('attaque_nbr1');
+            $table->integer('attaque_nbr2');
+            $table->integer('attaque_nbr3');
+            $table->integer('attaque_nbr4');
         });
     }
 

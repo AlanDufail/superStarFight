@@ -21,7 +21,7 @@
                     </x-nav-link>
                     @endrole
                     @role('player')
-                    <x-nav-link :href="route('player.arena')" :active="request()->routeIs('player.arena')">
+                    <x-nav-link :href="route('play')" :active="request()->routeIs('play')">
                         {{ __('Player') }}
                     </x-nav-link>
                     @endrole

@@ -35,7 +35,7 @@
                     <label>Faible contre :</label>
                     <select name="faibleContre" id="faibleContre" class="form-control">
                         @foreach($types as $type)
-                            <option value="{{ $type->type_id }}">{{ $type->nom }}</option>
+                            <option value="{{ $type->id }}">{{ $type->nom }}</option>
                         @endforeach
                     </select>
                 </div>
@@ -44,7 +44,7 @@
                     <label>Résistant contre :</label>
                     <select name="resistantContre" id="resistantContre" class="form-control">
                         @foreach($types as $type)
-                            <option value="{{ $type->type_id }}">{{ $type->nom }}</option>
+                            <option value="{{ $type->id }}">{{ $type->nom }}</option>
                         @endforeach
                     </select>
                 </div>

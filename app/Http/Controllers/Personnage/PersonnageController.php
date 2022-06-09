@@ -8,6 +8,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Attaque;
 use Spatie\Permission\Models\Permission;
 use Spatie\Permission\Models\Role;
+use Validator;
 
 class PersonnageController extends Controller
 {
@@ -49,16 +50,15 @@ class PersonnageController extends Controller
 
     // Create Form
     public function createUserForm(Request $request) {
-        return view('ajout-personnage', [
+        return view('player.ajout-personnage', [
             'attaques' => Attaque::all(),
             'types' => Type::all(),
         ]);
     }
 
     public function userForm(Request $request) {
-
         // Form validation
-        $this->validate($request, [
+        $validator = Validator::make($request->all(), [
             'prenom' => 'required',
             'nom' => 'required',
             'sexe'=> 'required',
@@ -73,10 +73,9 @@ class PersonnageController extends Controller
             'attaque_nbr3'=>'required',
             'attaque_nbr4'=>'required',
         ]);
-
         //  Store data in database
         Personnage::create($request->all());
       //
-      return back()->with('success', 'Votre formulaire a été soumis.');
+      return back()->with('message', 'Votre formulaire a été soumis.');
   }
 }

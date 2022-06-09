@@ -1,12 +1,14 @@
 <?php
 
-use App\Http\Controllers\Auth\AuthenticatedSessionController;
 use App\Http\Controllers\Admin\IndexAdminController;
 use App\Http\Controllers\Admin\PermissionController;
 use App\Http\Controllers\Admin\RoleController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Personnage\PersonnageController;
 use App\Http\Controllers\Arene\AreneController;
+use App\Http\Controllers\Attaque\AttaqueController;
+use App\Http\Controllers\Type\TypeController;
+
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -26,12 +28,7 @@ Route::get('/', function () {
 });
 
 
-Route::get('/ajout-personnage', 'App\Http\Controllers\Personnage\PersonnageController@createUserForm');
-Route::post('/ajout-personnage', 'App\Http\Controllers\Personnage\PersonnageController@userForm');
-Route::get('/ajout-attaque', 'App\Http\Controllers\Attaque\AttaqueController@createUserForm');
-Route::post('/ajout-attaque', 'App\Http\Controllers\Attaque\AttaqueController@userForm');
-Route::get('/ajout-type', 'App\Http\Controllers\Type\TypeController@createUserForm');
-Route::post('/ajout-type', 'App\Http\Controllers\Type\TypeController@userForm');
+
 
 Route::get('/dashboard', function () {
     return view('dashboard');
@@ -67,12 +64,17 @@ Route::middleware(['auth', 'role:admin'])->name('admin.')->prefix('admin')->grou
     Route::get('/personnages',[PersonnageController::class, 'index'])->name('personnages.index');
 });
 
- // ROUTES IF THE USER IS THE ADMIMN
-Route::middleware(['auth', 'role:player'])->name('player.')->prefix('player')->group(function () {
-    Route::get('/', [AreneController::class, 'arena'])->name('index');
 
+Route::middleware(['auth','role:player'])->name('player.')->group(function () {
+
+    Route::get('/ajout-personnage', [PersonnageController::class ,'createUserForm'])->middleware('auth')->name('player.createUserForm');
+    Route::post('/ajout-personnage', [PersonnageController::class ,'userForm'])->middleware('auth')->name('userForm');
+
+    Route::get('/ajout-attaque', [AttaqueController::class ,'createUserForm'])->middleware('auth')->name('createUserForm');
+    Route::post('/ajout-attaque', [AttaqueController::class ,'userForm'])->middleware('auth')->name('userForm');
+
+    Route::get('/ajout-type', [TypeController::class ,'createUserForm'])->middleware('auth')->name('createUserForm');
+    Route::post('/ajout-type', [TypeController::class ,'userForm'])->middleware('auth')->name('userForm');
 });
-
-
 
 require __DIR__ . '/auth.php';

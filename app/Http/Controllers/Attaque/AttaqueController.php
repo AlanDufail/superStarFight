@@ -13,7 +13,7 @@ class AttaqueController extends Controller
 {
     // Create Form
     public function createUserForm(Request $request) {
-        return view('ajout-attaques', [
+        return view('player.ajout-attaques', [
             'types' => Type::all(),
         ]);
     }
