@@ -42,6 +42,9 @@
         @isset($degats)
             {{ $nomAttaque }} a infligé {{ $degats }} dégats !!
         @endisset
+        @isset($gameOver)
+            {{ $gameOver }} t'as perdu bouffon !!
+        @endisset
         <br />
         <br />
 

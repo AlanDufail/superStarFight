@@ -31,13 +31,16 @@ class AreneController extends Controller
         $viePersonnage = ViePersonnage::find($idCombat);
 
         $nomAttaque = Attaque::find($idAttaque)->nom;
-
+        $gameOver ='';
         if ($numeroAttaquant == 2) {
             $degats = Attaque::find($idAttaque)->degats + $viePersonnage->combatPersonnages->personnage2->attaque - $viePersonnage->combatPersonnages->personnage2->defense;
             if($degats < 0) {
                 $degats = 1;
             }
             $viePersonnage->vie_personnage1 = $viePersonnage->vie_personnage1 - $degats;
+            if ($viePersonnage->vie_personnage1<0){
+                $gameOver = 'gameover';
+            }
         }
 
         if ($numeroAttaquant == 1) {
@@ -46,6 +49,9 @@ class AreneController extends Controller
                 $degats = 1;
             }
             $viePersonnage->vie_personnage2 = $viePersonnage->vie_personnage2 - $degats;
+            if ($viePersonnage->vie_personnage2<0){
+                $gameOver = 'gameover';
+            }
         }
         $viePersonnage->save();
 
@@ -53,6 +59,7 @@ class AreneController extends Controller
             'combat' => ViePersonnage::where('id', $viePersonnage->id)->first(),
             'degats' => $degats,
             'nomAttaque' => $nomAttaque,
+            'gameOver' => $gameOver,
         ]);
     }
 
