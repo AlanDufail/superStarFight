@@ -20,6 +20,11 @@
                         {{ __('Admin') }}
                     </x-nav-link>
                     @endrole
+                    @role('player')
+                    <x-nav-link :href="route('player.arena')" :active="request()->routeIs('player.arena')">
+                        {{ __('Player') }}
+                    </x-nav-link>
+                    @endrole
                 </div>
             </div>
 

@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Auth\AuthenticatedSessionController;
 use App\Http\Controllers\Admin\IndexAdminController;
 use App\Http\Controllers\Admin\PermissionController;
 use App\Http\Controllers\Admin\RoleController;
@@ -36,10 +37,16 @@ Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware('auth')->name('dashboard');
 
+Route::get('/play', function () {
+    return view('play');
+})->middleware('auth')->name('play');
 
+// ROUTES IF THE USER IS THE ADMIMN
 Route::middleware(['auth', 'role:admin'])->name('admin.')->prefix('admin')->group(function () {
     Route::get('/', [IndexAdminController::class, 'index'])->name('index');
 
+
+    //Routes roles managment
     Route::resource('/roles', RoleController::class);
     Route::post('/roles/{role}/permissions', [RoleController::class, 'givePermission'])->name('roles.permissions');
     Route::delete('/roles/{role}/permissions/{permission}', [RoleController::class, 'revokePermission'])->name('roles.permissions.revoke');
@@ -58,14 +65,13 @@ Route::middleware(['auth', 'role:admin'])->name('admin.')->prefix('admin')->grou
 
     Route::resource('/personnages', PersonnageController::class);
     Route::get('/personnages',[PersonnageController::class, 'index'])->name('personnages.index');
-    // Route::get('/personnages/{personnage}', [PersonnageController::class, 'show'])->name('users.show');
-
 });
 
+ // ROUTES IF THE USER IS THE ADMIMN
+Route::middleware(['auth', 'role:player'])->name('player.')->prefix('player')->group(function () {
+    Route::get('/', [AreneController::class, 'arena'])->name('index');
 
-// Route::middleware(['auth', 'role:player'])->name('player.')->prefix('player')->group(function () {
-//     Route::get('/', [IndexPlayerController::class, 'index'])->name('index');
-// });
+});
 
 
 

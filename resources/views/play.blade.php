@@ -237,18 +237,16 @@
 
             @if (Route::has('login'))
                 @auth
-
                     <div class="flex w-1/2 justify-end content-center">
-                        @role('admin')
-                            <a class="inline-block text-blue-300 no-underline hover:text-indigo-800 hover:text-underline text-center h-10 p-2 md:h-auto md:p-4 " data-tippy-content="@register" href="{{ url('/dashboard') }}">
-                                <p>Dashboard</p>
-                            </a>
-                        @endrole
-                        @role('player')
-                        <a class="inline-block text-blue-300 no-underline hover:text-indigo-800 hover:text-underline text-center h-10 p-2 md:h-auto md:p-4 " data-tippy-content="@register" href="{{ url('/play') }}">
-                            <p>Play</p>
+                        <a class="inline-block text-blue-300 no-underline hover:text-indigo-800 hover:text-underline text-center h-10 p-2 md:h-auto md:p-4 " data-tippy-content="@register" href="{{ url('/arena') }}">
+                            <p>Créer personnage</p>
                         </a>
-                        @endrole
+                        <a class="inline-block text-blue-300 no-underline hover:text-indigo-800 hover:text-underline text-center h-10 p-2 md:h-auto md:p-4 " data-tippy-content="@register" href="{{ url('/arena') }}">
+                            <p>Créer attaque</p>
+                        </a>
+                        <a class="inline-block text-blue-300 no-underline hover:text-indigo-800 hover:text-underline text-center h-10 p-2 md:h-auto md:p-4 " data-tippy-content="@register" href="{{ url('/arena') }}">
+                            <p>Créer profession + type personnage</p>
+                        </a>
                         <a class="inline-block text-blue-300 no-underline hover:text-indigo-800 hover:text-underline text-center h-10 p-2 md:h-auto md:p-4 " data-tippy-content="@register" href="{{ url('/logout') }}">
                             <form method="POST" action="{{ route('logout') }}">
                                 @csrf
@@ -285,20 +283,13 @@
 
             <!--Left Col-->
             <div class="flex flex-col w-full xl:w-2/5 justify-center lg:items-start overflow-y-hidden">
-                <h1 class="my-4 text-3xl md:text-5xl text-purple-800 font-bold leading-tight text-center md:text-left slide-in-bottom-h1">Welcome Fighters</h1>
-                <p class="leading-normal text-base md:text-2xl mb-8 text-center md:text-left slide-in-bottom-subtitle">For the very first time, all your favorite heroes: are projected on a completely new battlefield.</p>
-
-                <p class="text-blue-400 font-bold pb-8 lg:pb-6 text-center md:text-left fade-in">Download our app:</p>
-                <div class="flex w-full justify-center md:justify-start pb-24 lg:pb-0 fade-in">
-                    <img src="{{ URL('assets/images/App_Store.svg')}}" class="h-12 pr-4 bounce-top-icons">
-                    <img src="{{ URL('assets/images/Play_Store.svg')}}" class="h-12 bounce-top-icons">
-                </div>
+                <img class="w-32 mx-auto lg:mr-0 slide-in-bottom" src="{{ URL('assets/images/playbtn.png')}}">
 
             </div>
 
             <!--Right Col-->
             <div class="w-full xl:w-3/5 py-6 overflow-y-hidden">
-                <img class="w-5/6 mx-auto lg:mr-0 slide-in-bottom" src="{{ URL('assets/images/devices.svg')}}">
+                <img class="w-5/6 mx-auto lg:mr-0 slide-in-bottom" src="{{ URL('assets/images/ssf.png')}}">
             </div>
 
             <!--Footer-->

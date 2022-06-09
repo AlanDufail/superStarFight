@@ -29,7 +29,7 @@ class PersonnageController extends Controller
     public function edit(Personnage $personnage)
     {
         $personnages = Personnage::all();
-        return view('admin.personnages.edit', compact('personnages', 'permission'));
+        return view('admin.personnages.edit', compact('personnage'));
     }
 
     public function update(Request $request, Personnage $personnage)
