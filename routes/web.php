@@ -5,6 +5,7 @@ use App\Http\Controllers\Admin\PermissionController;
 use App\Http\Controllers\Admin\RoleController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Personnage\PersonnageController;
+use App\Http\Controllers\Selection\SelectionController;
 use App\Http\Controllers\Arene\AreneController;
 use App\Http\Controllers\Attaque\AttaqueController;
 use App\Http\Controllers\Type\TypeController;
@@ -27,6 +28,9 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/arena/{id}', [AreneController::class, 'arena']);
+
+Route::get('/attaque/{idCombat}/{idAttaque}/{idAttaquant}', [AreneController::class, 'attaque'])->name('attaque');
 
 
 
@@ -34,9 +38,15 @@ Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware('auth')->name('dashboard');
 
+<<<<<<< HEAD
 Route::get('/play', function () {
     return view('play');
 })->middleware('auth')->name('play');
+=======
+Route::get('/selection',[SelectionController::class,'selectionPersonnages'])->name('selectionPersonnages');
+Route::get('/selection/{id}/{combatPersonnageId}',[SelectionController::class,'sendPerso'])->name('send');
+Route::get('/selection/{id}/',[SelectionController::class,'sendPerso'])->name('send_p');
+>>>>>>> abb5ab4bcff7e00806b44a9097a6121efb260059
 
 // ROUTES IF THE USER IS THE ADMIMN
 Route::middleware(['auth', 'role:admin'])->name('admin.')->prefix('admin')->group(function () {

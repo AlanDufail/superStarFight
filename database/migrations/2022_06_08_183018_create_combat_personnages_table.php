@@ -19,17 +19,21 @@ return new class extends Migration
                 ->index();
 
             $table->integer('personnage_id')
+                ->nullable()
                 ->unsigned()
                 ->index();
             $table->foreign('personnage_id')
+                ->nullable()
                 ->references('id')
                 ->on('personnages')
                 ->onDelete('cascade');
 
             $table->integer('personnage2_id')
+                ->nullable()
                 ->unsigned()
                 ->index();
             $table->foreign('personnage2_id')
+                ->nullable()
                 ->references('id')
                 ->on('personnages')
                 ->onDelete('cascade');

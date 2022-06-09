@@ -9,6 +9,8 @@ class CombatPersonnage extends Model
 {
     use HasFactory;
 
+    public $timestamps = false;
+
     public function personnage1()
     {
         return $this->belongsTo(Personnage::class, 'personnage_id');
