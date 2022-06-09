@@ -24,9 +24,10 @@ class AreneController extends Controller
         //condition qui verifie quelle perso à attaquer
         $viePersonnage->vie_personnage1 = ViePersonnage::find($idCombat)->vie_personnage1 - Attaque::find($idAttaque)->degats;
         $viePersonnage->vie_personnage2 = 100;
+        $viePersonnage->save();
 
         return view('arena', [
-            'combats' => ViePersonnage::find($viePersonnage->id),
+            'combat' => ViePersonnage::where('id', $viePersonnage->id)->first()
         ]);
     }
 

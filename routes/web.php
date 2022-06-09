@@ -24,6 +24,9 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/arena/{id}', [AreneController::class, 'arena']);
+
+Route::get('/attaque/{idCombat}/{idAttaque}/{idAttaquant}', [AreneController::class, 'attaque'])->name('attaque');
 
 Route::get('/ajout-personnage', 'App\Http\Controllers\Personnage\PersonnageController@createUserForm');
 Route::post('/ajout-personnage', 'App\Http\Controllers\Personnage\PersonnageController@userForm');
