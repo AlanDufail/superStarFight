@@ -6,9 +6,47 @@ use App\Models\Type;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Attaque;
+use Spatie\Permission\Models\Permission;
+use Spatie\Permission\Models\Role;
 
 class PersonnageController extends Controller
 {
+    public function index()
+    {
+        $personnages = Personnage::all();
+
+        return view('admin.personnages.index', compact('personnages'));
+    }
+
+    public function store(Request $request)
+    {
+        $validated = $request->validate(['name' => ['required', 'min:3']]);
+        Personnage::create($validated);
+
+        return to_route('admin.personnages.index')->with('message', 'Personnage Created successfully.');
+    }
+
+    public function edit(Personnage $personnage)
+    {
+        $personnages = Personnage::all();
+        return view('admin.personnages.edit', compact('personnages', 'personnages'));
+    }
+
+    public function update(Request $request, Personnage $personnage)
+    {
+        $validated = $request->validate(['name' => ['required', 'min:3']]);
+        $personnage->update($validated);
+
+        return to_route('admin.personnage.index')->with('message', 'Personnage Updated successfully.');
+    }
+
+    public function destroy(Personnage $personnage)
+    {
+        $personnage->delete();
+
+        return back()->with('message', 'Personnage deleted.');
+    }
+
     // Create Form
     public function createUserForm(Request $request) {
         return view('ajout-personnage', [
