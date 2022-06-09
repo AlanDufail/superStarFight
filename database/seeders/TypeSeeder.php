@@ -30,5 +30,15 @@ class TypeSeeder extends Seeder
             'faibleContre' => 'Comedien',
             'resistantContre' => 'Sportif',
         ]);
+        Type::create([
+            'nom' => 'Developpeur',
+            'faibleContre' => 'Sportif',
+            'resistantContre' => 'Politque',
+        ]);
+        Type::create([
+            'nom' => 'Musicien',
+            'faibleContre' => 'Comedien',
+            'resistantContre' => 'Sportif',
+        ]);
     }
 }
