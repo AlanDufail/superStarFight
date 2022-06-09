@@ -9,43 +9,36 @@ use App\Models\CombatPersonnage;
 class SelectionController extends Controller
 {
 
-    public function selectionPerso()
+    public function selectionPersonnages()
         {
-            $data = Personnage::all();
+            $personnages = Personnage::all();
 
-            return view('selectionPersonnages',['personnages' => $data]);
+            return view('selectionPersonnages', [
+                'personnages' => $personnages,
+                ]);
         }
 
     public function sendPerso(Request $request) {
 
         $personnage_id = $request->id;
-
-        $personnage = New CombatPersonnage;
-
-        $personnage->personnage_id = $personnage_id;
-
-        $personnage->save();
-
-        return view('selectionPersonnages2');
-    }
-
-    public function selectionPerso2()
-    {
-        $data = Personnage::all();
-
-        return view('selectionPersonnages',['personnages' => $data]);
-    }
-
-    public function sendPerso2(Request $request) {
-
-        $personnage2_id = $request->id;
-
-        $personnage = New CombatPersonnage;
-
-        $personnage->personnage2_id = $personnage2_id;
+        if (isset($request->combatPersonnageId)){
+            $personnage = CombatPersonnage::find($request->combatPersonnageId);
+            $personnage->personnage2_id = $personnage_id;
+        } else {
+            $personnage = New CombatPersonnage;
+            $personnage->personnage_id = $personnage_id;
+            $personnage->personnage2_id = $personnage_id;
+        }
 
         $personnage->save();
 
+        $personnages = Personnage::all();
+
+        return view('selectionPersonnages', [
+            'personnages' => $personnages,
+            'combatPersonnageId' => $personnage->id,
+            ]
+        );
     }
 
 }
