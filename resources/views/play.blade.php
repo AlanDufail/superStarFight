@@ -282,7 +282,7 @@
         <div class="container pt-24 md:pt-48 px-6 mx-auto flex flex-wrap flex-col md:flex-row items-center">
 
             <!--Left Col-->
-            <a class="flex flex-col w-full xl:w-2/5 justify-center lg:items-start overflow-y-hidden"  href="{{ route('arena') }}">
+            <a class="flex flex-col w-full xl:w-2/5 justify-center lg:items-start overflow-y-hidden"  href="{{ route('selectionPersonnages') }}">
                <img class="w-32 mx-auto lg:mr-0 slide-in-bottom" src="{{ URL('assets/images/playbtn.png')}}"></a>
 
             </div>

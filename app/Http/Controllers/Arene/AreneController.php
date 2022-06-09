@@ -10,21 +10,21 @@ use Illuminate\Http\Request;
 
 class AreneController extends Controller
 {
-//    public function arena($id)
-//    {
-//        $viePersonnage = ViePersonnage::find($id);
-//        if ($viePersonnage->combatPersonnages->personnage1->vitesse > $viePersonnage->combatPersonnages->personnage2->vitesse){
-//            $premierJoueur = 'N°1' ;
-//        }
-//        else {
-//            $premierJoueur = 'N°2' ;//a transformer en fonction
-//        }
-//
-//        return view('arena', [
-//            'combat' => ViePersonnage::where('id', $id)->first(),
-//            'premierJoueur' => $premierJoueur,
-//        ]);
-//    }
+    public function arena($id)
+    {
+        $viePersonnage = ViePersonnage::find($id);
+        if ($viePersonnage->combatPersonnages->personnage1->vitesse > $viePersonnage->combatPersonnages->personnage2->vitesse){
+            $premierJoueur = 'N°1' ;
+        }
+        else {
+            $premierJoueur = 'N°2' ;//a transformer en fonction
+        }
+
+        return view('player.arena', [
+            'combat' => ViePersonnage::where('id', $id)->first(),
+            'premierJoueur' => $premierJoueur,
+        ]);
+    }
 
     public function attaque($idCombat, $idAttaque, $numeroAttaquant)
     {
@@ -49,7 +49,7 @@ class AreneController extends Controller
         }
         $viePersonnage->save();
 
-        return view('arena', [
+        return view('player.arena', [
             'combat' => ViePersonnage::where('id', $viePersonnage->id)->first(),
             'degats' => $degats,
             'nomAttaque' => $nomAttaque,
