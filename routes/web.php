@@ -5,6 +5,7 @@ use App\Http\Controllers\Admin\PermissionController;
 use App\Http\Controllers\Admin\RoleController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Personnage\PersonnageController;
+use App\Http\Controllers\Selection\SelectionController;
 use App\Http\Controllers\Arene\AreneController;
 use Illuminate\Support\Facades\Route;
 
@@ -39,6 +40,9 @@ Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware('auth')->name('dashboard');
 
+Route::get('/selection',[SelectionController::class,'selectionPersonnages'])->name('selectionPersonnages');
+Route::get('/selection/{id}/{combatPersonnageId}',[SelectionController::class,'sendPerso'])->name('send');
+Route::get('/selection/{id}/',[SelectionController::class,'sendPerso'])->name('send_p');
 
 Route::middleware(['auth', 'role:admin'])->name('admin.')->prefix('admin')->group(function () {
     Route::get('/', [IndexAdminController::class, 'index'])->name('index');
