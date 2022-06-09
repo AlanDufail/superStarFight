@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Selection;
 use App\Http\Controllers\Controller;
+use App\Models\ViePersonnage;
 use Illuminate\Http\Request;
 use App\Models\Personnage;
 use App\Models\CombatPersonnage;
@@ -37,6 +38,19 @@ class SelectionController extends Controller
         return view('selectionPersonnages', [
             'personnages' => $personnages,
             'combatPersonnageId' => $personnage->id,
+            ]
+        );
+    }
+    public function bataille(Request $request){
+        $viePersonnage = new ViePersonnage;
+        $viePersonnage->combat_id = $request->combatPersonnageId;
+        $personnage1_id = CombatPersonnage::find($request->combatPersonnageId)->personnage_id;
+        $personnage2_id = CombatPersonnage::find($request->combatPersonnageId)->personnage2_id;
+        $viePersonnage->vie_personnage1 = Personnage::find($personnage1_id)->vie;
+        $viePersonnage->vie_personnage2 = Personnage::find($personnage2_id)->vie;
+
+        return view('player.arena', [
+                'id' => $viePersonnage->id,
             ]
         );
     }
