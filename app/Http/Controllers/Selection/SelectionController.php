@@ -49,8 +49,18 @@ class SelectionController extends Controller
         $viePersonnage->vie_personnage1 = Personnage::find($personnage1_id)->vie;
         $viePersonnage->vie_personnage2 = Personnage::find($personnage2_id)->vie;
 
+        $viePersonnage->save();
+        $viePersonnage = ViePersonnage::find($viePersonnage->id);
+        if ($viePersonnage->combatPersonnages->personnage1->vitesse > $viePersonnage->combatPersonnages->personnage2->vitesse){
+            $premierJoueur = 'N°1' ;
+        }
+        else {
+            $premierJoueur = 'N°2' ;//a transformer en fonction
+        }
+
         return view('player.arena', [
-                'id' => $viePersonnage->id,
+                'combat' => ViePersonnage::where('id', $viePersonnage->id)->first(),
+                'premierJoueur' => $premierJoueur,
             ]
         );
     }

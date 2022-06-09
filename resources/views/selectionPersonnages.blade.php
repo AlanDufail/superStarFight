@@ -6,7 +6,7 @@
     @isset($combatPersonnageId)
             <h2>{{$personnage->nom}}</h2><a class="" href="{{ route('send', ['id' => $personnage->id, 'combatPersonnageId' => $combatPersonnageId]) }}"><img class="img"  src="{{$personnage->imgUrl}}"></img></a>
     @else
-            <h2>{{$personnage->nom}}</h2><a class="" href="{{ route('send_p', ['id' => $personnage->id]) }}"><img class="img"  src="{{$personnage->imgUrl}}"></img></a>
+            <h2>{{$personnage->nom}} - #{{ $personnage->id }}</h2><a class="" href="{{ route('send_p', ['id' => $personnage->id]) }}"><img class="img"  src="{{$personnage->imgUrl}}"></img></a>
     @endisset
     <a class="" href="">Stats</a>
 </div>
