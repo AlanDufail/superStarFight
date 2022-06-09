@@ -1,9 +1,11 @@
 <?php
 namespace App\Http\Controllers\Type;
+use Validator;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Type;
 use App\Models\Personnage;
+
 class TypeController extends Controller
 {
     // Create Form
@@ -15,7 +17,7 @@ class TypeController extends Controller
     // Store Form data in database
     public function userForm(Request $request) {
         // Form validation
-        $this->validate($request, [
+        $validator = Validator::make($request->all(), [
             'nom' => 'required',
             'faibleContre' => 'required',
             'resistantContre'=>'required',

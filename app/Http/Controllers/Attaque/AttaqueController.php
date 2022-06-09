@@ -34,6 +34,12 @@ class AttaqueController extends Controller
 
         //  Store data in database
         Attaque::create($request->all());
+
+        // $test = new Attaque_Type();
+        // $test->type = 1;
+        // $test->save();
+
+
         //
         return back()->with('success', 'Votre formulaire a été soumis.');
     }

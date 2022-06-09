@@ -5,7 +5,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Attaque extends Model
 {
-    public $fillable = ['nom','degats', 'precision', 'critique'];
+    public $fillable = ['nom','type', 'degats', 'precision', 'critique'];
 
     public $timestamps = false;
 

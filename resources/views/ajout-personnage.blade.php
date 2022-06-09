@@ -57,7 +57,7 @@
                     <label>Type</label>
                     <select name="type_id" id="type_id" class="form-control">
                         @foreach($types as $type)
-                            <option value="{{ $type->type_id }}">{{ $type->nom }}</option>
+                            <option value="{{ $type->id }}">{{ $type->nom }}</option>
                         @endforeach
                     </select>
                 </div>
@@ -121,7 +121,7 @@
                     <label>attaque_nbr1</label>
                     <select name="attaque_nbr1" id="attaque_nbr1" class="form-control">
                         @foreach($attaques as $attaque)
-                            <option value="{{ $attaque->attaque_id }}">{{ $attaque->nom }}</option>
+                            <option value="{{ $attaque->id }}">{{ $attaque->nom }}</option>
                         @endforeach
                     </select>
                 </div>
@@ -130,7 +130,7 @@
                     <label>attaque_nbr4</label>
                     <select name="attaque_nbr2" id="attaque_nbr2" class="form-control">
                         @foreach($attaques as $attaque)
-                            <option value="{{ $attaque->attaque_id }}">{{ $attaque->nom }}</option>
+                            <option value="{{ $attaque->id }}">{{ $attaque->nom }}</option>
                         @endforeach
                     </select>
                 </div>
@@ -139,7 +139,7 @@
                     <label>attaque_nbr4</label>
                     <select name="attaque_nbr3" id="attaque_nbr3" class="form-control">
                         @foreach($attaques as $attaque)
-                            <option value="{{ $attaque->attaque_id }}">{{ $attaque->nom }}</option>
+                            <option value="{{ $attaque->id }}">{{ $attaque->nom }}</option>
                         @endforeach
                     </select>
                 </div>
@@ -148,7 +148,7 @@
                     <label>attaque_nbr4</label>
                     <select name="attaque_nbr4" id="attaque_nbr4" class="form-control">
                         @foreach($attaques as $attaque)
-                            <option value="{{ $attaque->attaque_id }}">{{ $attaque->nom }}</option>
+                            <option value="{{ $attaque->id }}">{{ $attaque->nom }}</option>
                         @endforeach
                     </select>
                 </div>

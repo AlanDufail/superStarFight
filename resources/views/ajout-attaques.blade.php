@@ -35,7 +35,7 @@
                     <label>Type de l'attaque</label>
                     <select name="type" id="type" class="form-control">
                         @foreach($types as $type)
-                            <option value="{{ $type->type_id }}">{{ $type->nom }}</option>
+                            <option value="{{ $type->id }}">{{ $type->nom }}</option>
                         @endforeach
                     </select>
                 </div>
