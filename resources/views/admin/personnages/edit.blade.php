@@ -3,18 +3,18 @@
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg p-2">
                 <div class="flex p-2">
-                    <a href="{{ route('admin.roles.index') }}"
+                    <a href="{{ route('admin.personnages.index') }}"
                         class="px-4 py-2 bg-green-700 hover:bg-green-500 text-slate-100 rounded-md">Retour</a>
                 </div>
                 <div class="flex flex-col p-2 bg-slate-100">
                     <div class="space-y-8 divide-y divide-gray-200 w-1/2 mt-10">
-                        <form method="POST" action="{{ route('admin.roles.update', $role->id) }}">
+                        <form method="POST" action="{{ route('admin.personnages.edit', $personnage->id) }}">
                             @csrf
                             @method('PUT')
                             <div class="sm:col-span-6">
-                                <label for="name" class="block text-sm font-medium text-gray-700"> Nom du role </label>
+                                <label for="name" class="block text-sm font-medium text-gray-700"> Nom du perssonage </label>
                                 <div class="mt-1">
-                                    <input type="text" id="name" name="name" value="{{ $role->name }}"
+                                    <input type="text" id="name" name="name" value="{{ $personnage->nom }}"
                                         class="block w-full appearance-none bg-white border border-gray-400 rounded-md py-2 px-3 text-base leading-normal transition duration-150 ease-in-out sm:text-sm sm:leading-5" />
                                 </div>
                                 @error('name')
@@ -28,7 +28,6 @@
                         </form>
                     </div>
                 </div>
-
             </div>
         </div>
     </div>
