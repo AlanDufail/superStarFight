@@ -29,7 +29,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/arena/{id}', [AreneController::class, 'arena']);
+Route::get('/arena/{id}', [AreneController::class, 'arena'])->name('arena');
 
 Route::get('/attaque/{idCombat}/{idAttaque}/{idAttaquant}', [AreneController::class, 'attaque'])->name('attaque');
 

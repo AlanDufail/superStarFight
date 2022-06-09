@@ -68,10 +68,6 @@ class PersonnageController extends Controller
             'attaque'=>'required',
             'defense'=>'required',
             'vitesse'=>'required',
-            'attaque_nbr1'=>'nullable',
-            'attaque_nbr2'=>'nullable',
-            'attaque_nbr3'=>'nullable',
-            'attaque_nbr4'=>'nullable',
         ]);
         //  Store data in database
         Personnage::create($request->all());
