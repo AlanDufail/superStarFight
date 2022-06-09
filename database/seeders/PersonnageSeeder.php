@@ -21,7 +21,7 @@ class PersonnageSeeder extends Seeder
             'imgUrl' => 'https://parlersport.com/wp-content/uploads/2021/09/John-Cena-montre-une-transformation-corporelle-insensee-pour-la-serie-1200x900.png',
             'vie' => '600',
             'attaque' => '100',
-            'defense' => '200',
+            'defense' => '40',
             'vitesse' => '40',
             'sexe' => 'homme',
             ]);
@@ -32,7 +32,7 @@ class PersonnageSeeder extends Seeder
             'imgUrl' => 'https://yt3.ggpht.com/43-m8EJ5hr-zruFUXWZI6uOZiKRYLsS_JGOFTLy5PNVwcANrzKar4zRtwCa4uLY6yp2iC6UqeQ=s900-c-k-c0x00ffffff-no-rj',
             'vie' => '400',
             'attaque' => '95',
-            'defense' => '140',
+            'defense' => '50',
             'vitesse' => '70',
             'sexe' => 'homme',
             ]);

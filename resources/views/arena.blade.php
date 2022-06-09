@@ -22,17 +22,29 @@
     </head>
     <body>
         <h1>Arène :</h1>
-
+        <br/>
+        @isset($premierJoueur)
+            Le premier joueur est {{ $premierJoueur }} !
+        @endisset
+        <br/>
         <h2>{{ $combat->combatPersonnages->personnage1->nom }} - {{ $combat->vie_personnage1 }}</h2>
 
         @foreach($combat->combatPersonnages->personnage1->attaques as $attaque)
-            <a href="{{ route('attaque', [$combat->id, $attaque->id, $combat->combatPersonnages->personnage1->id]) }}">{{ $attaque->nom }}</a>
+            <a href="{{ route('attaque', [$combat->combatPersonnages->id, $attaque->id, 1]) }}">{{ $attaque->nom }}</a>
         @endforeach
         <br />
         <h2>{{ $combat->combatPersonnages->personnage2->nom }} - {{ $combat->vie_personnage2 }}</h2>
         @foreach($combat->combatPersonnages->personnage2->attaques as $attaque)
-            {{ $attaque->nom }}
+            <a href="{{ route('attaque', [$combat->combatPersonnages->id, $attaque->id, 2]) }}">{{ $attaque->nom }}</a>
         @endforeach
+        <br/>
+        <br/>
+        @isset($degats)
+            {{ $nomAttaque }} a infligé {{ $degats }} dégats !!
+        @endisset
+        <br />
+        <br />
+
 
     </body>
 </html>
