@@ -18,7 +18,6 @@ return new class extends Migration
             $table->string('prenom');
             $table->string('nom');
             $table->string('sexe');
-            $table->string('type_id');
             $table->string('imgUrl');
             $table->integer('vie');
             $table->integer('attaque');
