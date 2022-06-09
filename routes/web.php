@@ -4,6 +4,7 @@ use App\Http\Controllers\Admin\IndexAdminController;
 use App\Http\Controllers\Admin\PermissionController;
 use App\Http\Controllers\Admin\RoleController;
 use App\Http\Controllers\Admin\UserController;
+use App\Http\Controllers\Arene\AreneController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -22,6 +23,13 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/arena/{id}',
+    [AreneController::class, 'arena']);
+
+Route::get('/arena/{idCombat}/{idAttaque}/{idCombattant}',
+    [AreneController::class, 'attaque']);
+Route::post('/arena/{idCombat}/{idAttaque}/{idCombattant}',
+    [AreneController::class, 'attaque']);
 
 Route::get('/ajout-personnage', 'App\Http\Controllers\Personnage\PersonnageController@createUserForm');
 Route::post('/ajout-personnage', 'App\Http\Controllers\Personnage\PersonnageController@userForm');

@@ -13,8 +13,8 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('combats_personnages', function (Blueprint $table) {
-            $table->increments('combat_id')
+        Schema::create('combat_personnages', function (Blueprint $table) {
+            $table->increments('id')
                 ->unsigned()
                 ->index();
 
@@ -43,6 +43,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('combats_personnages');
+        Schema::dropIfExists('combat_personnages');
     }
 };
